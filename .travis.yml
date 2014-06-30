@@ -7,5 +7,6 @@ before_script:
     - curl -s http://getcomposer.org/installer | php
     - php composer.phar install --dev
     - memcached -p 11211 -d
+    - echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 script:
     - ./vendor/bin/phpunit -c test/phpunit.xml
